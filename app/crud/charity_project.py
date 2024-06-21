@@ -12,7 +12,8 @@ from app.schemas.charity_project import (
 
 
 class CRUDCharityProject(
-    CRUDBase[CharityProject, CharityProjectCreate, CharityProjectUpdate]):
+    CRUDBase[CharityProject, CharityProjectCreate, CharityProjectUpdate]
+):
     async def get_by_name(
             self,
             name: str,
