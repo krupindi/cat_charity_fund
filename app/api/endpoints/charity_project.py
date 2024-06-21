@@ -50,13 +50,13 @@ async def update_charity_project(
 ):
     charity_project = await charity_project_crud.get(project_id, session)
     await check_charity_project_not_exists(charity_project)
-    await check_full_amount_not_less_than_invested(obj_in.full_amount,
-                                                   charity_project)
+    await check_full_amount_not_less_than_invested(
+        obj_in.full_amount, charity_project)
     await check_not_fully_invested(charity_project)
     if obj_in.name:
         await check_charity_project_exists(obj_in.name, session)
-    updated_project = await charity_project_crud.update(charity_project,
-                                                        obj_in, session)
+    updated_project = await charity_project_crud.update(
+        charity_project, obj_in, session)
     return updated_project
 
 
