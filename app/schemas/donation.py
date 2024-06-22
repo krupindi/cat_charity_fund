@@ -11,7 +11,7 @@ class DonationBase(BaseModel):
     @validator('full_amount')
     def amount_must_be_positive(cls, value):
         if value <= 0:
-            raise ValueError("Full amount must be greater than zero")
+            raise ValueError('Полная сумма должна быть больше нуля')
         return value
 
 

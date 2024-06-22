@@ -47,13 +47,13 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
             password: str,
             user: Union[UserCreate, User],
     ) -> None:
-        if len(password) < 3:
+        if len(password) < settings.PASSWORD_MIN_LENGTH:
             raise InvalidPasswordException(
-                reason='Password should be at least 3 characters'
+                reason='Пароль должен быть не менее 3 символов'
             )
         if user.email in password:
             raise InvalidPasswordException(
-                reason='Password should not contain e-mail'
+                reason='Пароль не должен содержать email'
             )
 
     async def on_after_register(

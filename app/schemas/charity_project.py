@@ -12,7 +12,7 @@ class CharityProjectBase(BaseModel):
     @validator('name')
     def name_cannot_be_empty(cls, value):
         if not value or value.strip() == "":
-            raise ValueError("Name cannot be empty")
+            raise ValueError('Имя не может быть пустым')
         return value
 
 
@@ -26,7 +26,7 @@ class CharityProjectUpdate(CharityProjectBase):
     full_amount: Optional[PositiveInt]
 
     class Config:
-        extra = "forbid"
+        extra = 'forbid'
 
 
 class CharityProjectRead(CharityProjectBase):

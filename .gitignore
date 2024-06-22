@@ -132,3 +132,4 @@ dmypy.json
 .idea
 
 /fastapi.db
+/qrkot_charity_fund.db
